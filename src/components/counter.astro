@@ -1,0 +1,20 @@
+---
+const { title } = Astro.props;
+---
+
+<div>
+  <h2>{title}</h2>
+  <p id="count">Count: 0</p>
+  <button id="increment-btn">Increment</button>
+</div>
+
+<script>
+    const countEl = document.getElementById("count");
+    const btn = document.getElementById("increment-btn");
+    let count = 0;
+
+    btn?.addEventListener("click", () => {
+    count++;
+    if (countEl) countEl.textContent = `Count: ${count}`;
+    });
+</script>
