@@ -1,8 +1,6 @@
 ---
-import Counter from "../components/counter.astro"
-import { Image } from 'astro:assets';
-
-import imageSumire from '../images/sumire.png';
+import { getCollection } from 'astro:content';
+const posts = await getCollection('blog');
 ---
 
 <html lang="en">
@@ -16,7 +14,12 @@ import imageSumire from '../images/sumire.png';
 	</head>
 	<body>
 		<h1>This is my new blog!!</h1>
-		<Counter title="My Counter!" />
-		<Image src={imageSumire} alt="Sumire" width="500" quality="max" style="display: block; margin: 0 auto;" />
+		<ul>
+			{posts.map(
+				post => (
+					<li><a href={`blog/${post.id}`}> {post.data.title} </a></li>
+				)
+			)}
+		</ul>
 	</body>
 </html>
