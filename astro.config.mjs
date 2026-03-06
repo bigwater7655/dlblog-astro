@@ -5,7 +5,7 @@ import mdx from '@astrojs/mdx';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://bigwater7655.github.io',
-  base: '/dlblog-astro',
+  base: '/dlblog-astro/',
   integrations: [mdx()],
   vite: {
     resolve: {
